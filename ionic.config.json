@@ -1,0 +1,7 @@
+{
+  "name": "termianl_pro",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
