@@ -1,14 +1,52 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<ion-header no-border>
+  <ion-navbar color="secondary">
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content fullscreen parallax-header>
+
+  <div class="header-image"></div>
+
+  <div class="main-content">
+
+    <ion-segment [(ngModel)]="stream">
+      
+   
+      <ion-segment-button value="popular">Todos nuestros Servicios</ion-segment-button>
+    
+    </ion-segment>
+    <ion-slides #productSlides >
+              
+                
+    </ion-slides>
+    <div class="news-box" *ngFor="let product of moreProducts" text-wrap (click)="openProductPage(product)">
+    
+    <img class="images" [src]="product.featured_src">
+  
+    <div class="detail">
+    <h6 class="details"><span [innerHTML]="product.short_description.substr(0, 50) + '...'"></span></h6>
+    <img class="avatar" src="../assets/imgs/buses2.jpg">
+    <p class="blog"> {{ product.title }}</p>
+    <i class="fa fa-circle dot" style="color:#ffc107" aria-hidden="true"></i>
+    <p class="tag"> <span [innerHTML]="product.price_html"></span></p>
+    </div>
+
+  <hr>
+  </div>
+
+  <hr>
+
+
+
+
+  
+
+
+  </div>
+  
+  <ion-infinite-scroll (ionInfinite)="loadMoreProducts($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+</ion-infinite-scroll>
+
+
 </ion-content>

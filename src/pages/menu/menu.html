@@ -1,0 +1,70 @@
+<ion-content>
+  <ion-header>
+      
+    <ion-navbar color="clear">
+      <ion-title>
+        <p style="font-family:open-sans; font-size:18px">Lo que encontrarás en el Terminal !</p>
+      </ion-title>
+  
+      <ion-buttons end>
+        <button ion-button icon-only style="color:#b7c4cb" (click)="onShowOptions($event)">
+          <ion-icon name="more"></ion-icon>
+        </button>
+      </ion-buttons>
+  
+  
+    </ion-navbar>
+      </ion-header>
+      <ion-content>
+
+        <h3>Transportes </h3>
+        <button class="right" ion-button clear small (click)="productos()"><p style="font-family:open-sans; font-size:15px">Ver Todos</p></button>
+        <ion-list>
+            
+
+            <ion-row>
+              <ion-col *ngFor="let category of valor" color="light" text-wrap (click)="opencategorypage(category)" menu-close>
+                
+                <img   class="image" src="{{category.image}}">
+                <h4 class="track">{{ category.name }}</h4>
+                <p class="tracks">{{ category.description }} </p>
+              </ion-col>
+             
+          
+            </ion-row>
+            <hr>
+
+            <div class="box">
+              <img src="../assets/icon/favicon.ico">
+          
+              <div class="player">
+                <h4>todos los servicios</h4>
+                <p class="tracks">se muestra todos los servicios</p>
+              </div>
+            </div>
+          
+            
+            <hr>
+            <ion-row>
+              <ion-col *ngFor="let category of categories" color="light" text-wrap (click)="opencategorypage(category)" menu-close>
+                
+                <img class="image" src="{{category.image}}">
+                <h4 class="track">{{ category.name }}</h4>
+                <p class="tracks">{{ category.description }} </p>
+              </ion-col>
+             
+            
+          
+            </ion-row>
+      <!-- Optional Subcategories Display -->
+
+       
+          
+
+     
+
+     
+      </ion-list> 
+
+      </ion-content>
+    </ion-content>
